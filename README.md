@@ -5,9 +5,14 @@ This project is a static practice website for `britizen_life_in_uk_mcq_export.js
 ## What it does
 
 - Topic-first practice flow (click topic, practice immediately).
+- Topics are subdivided into sets (typically 20-30 questions, never above 30).
 - Rapid answer/check/next loop.
 - Shows progress, score, and **remaining questions**.
 - Supports both single-answer and multi-select questions.
+- Optional shuffle toggle.
+- Previous-question side panel + previous button for back-navigation.
+- Rapid Fire mode: 10 random questions with stopwatch.
+- Typed-answer mode: exact wording (case-insensitive), with multi-answers separated by `.`.
 - Shows source explanation and generated LLM context after each answer.
 
 ## Files

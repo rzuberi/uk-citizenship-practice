@@ -22,10 +22,39 @@
           <p class="eyebrow">UK Citizenship Practice</p>
           <h1>Pick a Topic and Practice Fast</h1>
           <p class="hero-copy">
-            Click a topic, answer quickly, and see explanations plus generated learning context after each question.
+            Choose a topic set, answer rapidly, and get explanations plus generated context after every question.
           </p>
           <div class="hero-stats" id="hero-stats"></div>
         </header>
+
+        <section class="card setup-card">
+          <div class="setup-grid">
+            <label class="setting">
+              <span>Questions per set</span>
+              <select id="batch-size">
+                <option value="20">20</option>
+                <option value="25" selected>25</option>
+                <option value="30">30</option>
+              </select>
+            </label>
+
+            <label class="setting setting-inline">
+              <input id="shuffle-toggle" type="checkbox" checked />
+              <span>Shuffle questions</span>
+            </label>
+
+            <label class="setting">
+              <span>Answer mode</span>
+              <select id="answer-mode">
+                <option value="choice" selected>Choose options</option>
+                <option value="typed">Type exact answer</option>
+              </select>
+            </label>
+
+            <button id="rapid-fire-btn" class="secondary-btn" type="button">Rapid Fire: 10 Random</button>
+          </div>
+          <p id="setup-note" class="setup-note"></p>
+        </section>
 
         <section class="card">
           <div class="section-head">
@@ -48,32 +77,68 @@
             <p id="progress-text"></p>
             <p id="score-text"></p>
             <p id="remaining-text"></p>
+            <p id="mode-text"></p>
+            <p id="timer-text" class="timer-text hidden"></p>
           </div>
           <div class="progress-track" aria-hidden="true">
             <div id="progress-fill" class="progress-fill"></div>
           </div>
         </header>
 
-        <article class="card question-card" id="question-card">
-          <p id="question-type" class="question-type"></p>
-          <h3 id="question-text"></h3>
-          <form id="options-form" class="options-form" autocomplete="off"></form>
+        <div class="practice-layout">
+          <article class="card question-card" id="question-card">
+            <p id="question-type" class="question-type"></p>
+            <h3 id="question-text"></h3>
 
-          <div class="action-row">
-            <button id="submit-btn" class="primary-btn" type="button">Check Answer</button>
-            <button id="next-btn" class="secondary-btn" type="button" disabled>Next Question</button>
-          </div>
+            <form id="options-form" class="options-form" autocomplete="off"></form>
 
-          <section id="feedback-panel" class="feedback hidden" aria-live="polite">
-            <h4 id="feedback-title"></h4>
-            <p id="feedback-explanation"></p>
-
-            <div class="context-block">
-              <p class="context-label">Generated context</p>
-              <p id="feedback-context"></p>
+            <div id="typed-answer-wrap" class="typed-wrap hidden">
+              <label id="typed-answer-label" for="typed-answer-input"></label>
+              <textarea
+                id="typed-answer-input"
+                rows="3"
+                spellcheck="false"
+                placeholder="Type your exact answer here"
+              ></textarea>
             </div>
-          </section>
-        </article>
+
+            <div class="action-row">
+              <button id="prev-btn" class="ghost-btn" type="button">Previous</button>
+              <button id="submit-btn" class="primary-btn" type="button">Check Answer</button>
+              <button id="next-btn" class="secondary-btn" type="button" disabled>Next Question</button>
+            </div>
+
+            <section id="feedback-panel" class="feedback hidden" aria-live="polite">
+              <h4 id="feedback-title"></h4>
+              <p id="feedback-your-answer" class="feedback-mini"></p>
+              <p id="feedback-correct-answer" class="feedback-mini"></p>
+              <p id="feedback-explanation"></p>
+
+              <div class="context-block">
+                <p class="context-label">Generated context</p>
+                <p id="feedback-context"></p>
+              </div>
+            </section>
+          </article>
+
+          <aside id="previous-panel" class="card previous-card">
+            <h3>Previous Question</h3>
+            <p id="previous-empty" class="previous-empty">Answer a question to see the last one here.</p>
+
+            <div id="previous-content" class="hidden">
+              <p class="side-label">Question</p>
+              <p id="previous-question-text"></p>
+
+              <p class="side-label">Your answer</p>
+              <p id="previous-user-answer"></p>
+
+              <p class="side-label">Correct answer</p>
+              <p id="previous-correct-answer"></p>
+
+              <p id="previous-result" class="previous-result"></p>
+            </div>
+          </aside>
+        </div>
       </section>
     </main>
 
