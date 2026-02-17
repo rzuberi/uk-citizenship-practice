@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "generated_at_utc": "2026-02-17T16:01:43Z",
+    "generator": "scripts/generate_question_contexts.py",
+    "method": "hpc-llm llm ask (SLURM-backed Ollama)",
+    "model": "llama3.1:8b",
+    "questions_file": "/mnt/scratchc/fmlab/zuberi01/personal/uk-citizenship-practice/britizen_life_in_uk_mcq_export.json",
+    "llm_bin": "/scratchc/fmlab/zuberi01/phd/hpc-llm/bin/llm",
+    "launcher_prefix": [
+      "/Users/zuberi01/miniforge3/bin/conda",
+      "run",
+      "-n",
+      "llm_ollama"
+    ],
+    "conda_run_env": "llm_ollama"
+  },
+  "contexts": {},
+  "errors": {
+    "1": {
+      "question_id": 1,
+      "topic_id": 1,
+      "topic_name": "The Values and principles of the UK",
+      "error": "Unknown llm ask failure",
+      "attempted_at_utc": "2026-02-17T16:01:43Z"
+    }
+  }
+}

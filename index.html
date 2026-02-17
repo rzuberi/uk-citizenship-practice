@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Life in the UK Practice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-shape bg-shape-1" aria-hidden="true"></div>
+    <div class="bg-shape bg-shape-2" aria-hidden="true"></div>
+
+    <main class="app-shell">
+      <section id="topic-view" class="view">
+        <header class="hero card">
+          <p class="eyebrow">UK Citizenship Practice</p>
+          <h1>Pick a Topic and Practice Fast</h1>
+          <p class="hero-copy">
+            Click a topic, answer quickly, and see explanations plus generated learning context after each question.
+          </p>
+          <div class="hero-stats" id="hero-stats"></div>
+        </header>
+
+        <section class="card">
+          <div class="section-head">
+            <h2>Topics</h2>
+            <p id="context-status" class="context-status">Loading data...</p>
+          </div>
+          <div id="topic-grid" class="topic-grid"></div>
+        </section>
+      </section>
+
+      <section id="practice-view" class="view hidden">
+        <header class="card practice-top">
+          <div class="practice-top-row">
+            <button id="back-btn" class="ghost-btn" type="button">Back to Topics</button>
+            <p id="topic-pill" class="topic-pill"></p>
+          </div>
+
+          <h2 id="practice-title">Topic Practice</h2>
+          <div class="score-row">
+            <p id="progress-text"></p>
+            <p id="score-text"></p>
+            <p id="remaining-text"></p>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+        </header>
+
+        <article class="card question-card" id="question-card">
+          <p id="question-type" class="question-type"></p>
+          <h3 id="question-text"></h3>
+          <form id="options-form" class="options-form" autocomplete="off"></form>
+
+          <div class="action-row">
+            <button id="submit-btn" class="primary-btn" type="button">Check Answer</button>
+            <button id="next-btn" class="secondary-btn" type="button" disabled>Next Question</button>
+          </div>
+
+          <section id="feedback-panel" class="feedback hidden" aria-live="polite">
+            <h4 id="feedback-title"></h4>
+            <p id="feedback-explanation"></p>
+
+            <div class="context-block">
+              <p class="context-label">Generated context</p>
+              <p id="feedback-context"></p>
+            </div>
+          </section>
+        </article>
+      </section>
+    </main>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
